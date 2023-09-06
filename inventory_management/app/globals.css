@@ -15,3 +15,49 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+.option-bg-completed:hover {
+  background-color: #7ac14d;
+  color: white;
+}
+
+.option-bg-inprogress:hover {
+  background-color: #b3d99b;
+  color: white;
+}
+
+.option-bg-onHold:hover {
+  background-color: #ecde7c;
+  color: white;
+}
+
+.option-background-completed {
+  background-color: #7ac14d;
+}
+
+.option-background-inprogress {
+  background-color: #b3d99b;
+}
+
+.option-background-onHold {
+  background-color: #ecde7c;
+}
+
+.option-background-sidewalkshed {
+  background-color: #7ac14d;
+  color: white;
+}
+
+.option-background-scaffold {
+  background-color: #ecde7c;
+  color: white;
+}
+
+.option-background-shoring {
+  background-color: #9640be;
+  color: white;
+}
+
+.dropdown-transition {
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}

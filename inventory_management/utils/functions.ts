@@ -1,6 +1,14 @@
-export function getStatusClassName(status: String) {
-  if (status === "Completed") return "bg-brand-green-main";
-  if (status === "On Hold") return "bg-brand-red";
-  if (status === "On Road") return "bg-brand-yellow";
-  if (status === "In Progress") return "bg-brand-green-light";
+export function getStatusClassName(status: string) {
+  switch (status) {
+    case "Completed":
+      return "bg-brand-green-main";
+    case "On Hold":
+      return "bg-brand-red";
+    case "On Road":
+      return "bg-brand-yellow";
+    case "In Progress":
+      return "bg-brand-green-light";
+    default:
+      return "";
+  }
 }
