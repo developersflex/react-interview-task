@@ -1,16 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Button from "../Button";
 import Badge from "../Badge";
 import { Icons } from "../Icons";
 import AddJob from "../dashboard/add-job";
-
-interface Item {
-  id: string;
-  title: string;
-  status: string;
-}
+import Link from "next/link";
+import { Item } from "@/types";
+import mockData from "@/mock-api/data.json";
 
 interface Props {
   data: Item[];
@@ -26,15 +23,15 @@ export default function Table({ data }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredData = data.filter((item) =>
-    item.title?.toLowerCase().includes(filter)
+    item.name?.toLowerCase().includes(filter)
   );
 
   return (
     <div className="flex flex-col gap-5 w-full shadow-md rounded-lg   overflow-hidden">
-      <div className="w-full  px-5 py-2 bg-gray-100">Title</div>
+      <div className="w-full  px-5 py-2 bg-brand-background">Title</div>
       <div className="w-full flex flex-col gap-5 px-4 md:flex-row md:justify-end">
         <div className="relative">
-          <Icons.loop className="absolute bottom-2.5 left-2 pointer-events-none" />
+          <Icons.loop className="absolute bottom-1.5 left-2 pointer-events-none" />
           <input
             type="text"
             placeholder="Search..."
@@ -51,30 +48,65 @@ export default function Table({ data }: Props) {
         <AddJob
           isOpen={isModalOpen}
           handleClose={() => setIsModalOpen(false)}
-          onAddJob={() => alert("Job added successfully")}
         />
       </div>
       <table className="w-full">
         <thead>
           <tr>
-            <th>Jobsite Name</th>
-            <th>Status</th>
+            <th className="text-center w-1/2">Jobsite Name</th>
+            <th className="w-1/2">Status</th>
           </tr>
         </thead>
+
         <tbody>
-          {filteredData.map((item, index) => (
-            <tr
-              key={index}
-              className={`text-center   ${
-                index % 2 === 0 ? "bg-gray-100" : ""
-              }`}
-            >
-              <td>{item.title}</td>
-              <td>
-                <Badge text={item.status} />
-              </td>
-            </tr>
-          ))}
+          {data?.length === 0 ? (
+            <>
+              {Array.from({ length: mockData.jobsites?.length }).map(
+                (_, index) => (
+                  <tr
+                    key={index}
+                    className={`text-center animate-pulse  h-[34px] ${
+                      index % 2 === 0 ? "bg-brand-background" : ""
+                    }`}
+                  >
+                    <td></td>
+                    <td></td>
+                  </tr>
+                )
+              )}
+            </>
+          ) : filteredData?.length === 0 ? (
+            <>
+              <tr>
+                <td className="text-center p-2 bg-brand-background" colSpan={2}>
+                  No results found.
+                </td>
+              </tr>
+            </>
+          ) : (
+            filteredData.map((item, index) => {
+              return (
+                <tr
+                  key={index}
+                  className={`text-left ${
+                    index % 2 === 0 ? "bg-brand-background" : ""
+                  }`}
+                >
+                  <td className="pl-5 py-2 md:pl-[580px] md:py-0">
+                    <Link
+                      href={`/jobsites/${item.id}`}
+                      className="text-[#1264A3] text-left  font-semibold whitespace-break-spaces"
+                    >
+                      {item.name}
+                    </Link>
+                  </td>
+                  <td>
+                    <Badge text={item.status} />
+                  </td>
+                </tr>
+              );
+            })
+          )}
         </tbody>
       </table>
     </div>
