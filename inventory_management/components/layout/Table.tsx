@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import Button from "./Button";
-import Badge from "./Badge";
-import { Icons } from "./Icons";
+import Button from "../Button";
+import Badge from "../Badge";
+import { Icons } from "../Icons";
+import AddJob from "../dashboard/add-job";
 
 interface Item {
-  name: string;
+  id: string;
+  title: string;
   status: string;
 }
 
@@ -21,8 +23,10 @@ export default function Table({ data }: Props) {
     setFilter(sanitizedInput);
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(filter)
+    item.title?.toLowerCase().includes(filter)
   );
 
   return (
@@ -39,12 +43,21 @@ export default function Table({ data }: Props) {
             className="w-full md:w-96 h-8 pl-10 pr-4 py-2 rounded border flex items-center"
           />
         </div>
-        <Button text="Create" variant="create" />
+        <Button
+          text="Create"
+          variant="create"
+          onClick={() => setIsModalOpen(true)}
+        />
+        <AddJob
+          isOpen={isModalOpen}
+          handleClose={() => setIsModalOpen(false)}
+          onAddJob={() => alert("Job added successfully")}
+        />
       </div>
       <table className="w-full">
         <thead>
-          <tr className="text-center">
-            <th>Name</th>
+          <tr>
+            <th>Jobsite Name</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -56,7 +69,7 @@ export default function Table({ data }: Props) {
                 index % 2 === 0 ? "bg-gray-100" : ""
               }`}
             >
-              <td>{item.name}</td>
+              <td>{item.title}</td>
               <td>
                 <Badge text={item.status} />
               </td>

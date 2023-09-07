@@ -16,13 +16,13 @@ export default function Button({ variant = "create", onClick, text }: Props) {
   let hrBorderColor;
 
   if (variant === "create") {
-    buttonClass += " bg-[#71CF48] hover:bg-[#68C142] ";
+    buttonClass += " bg-[#68C142] hover:bg-[#71CF48] ";
     icon = <Icons.plus />;
-    hrBorderColor = " border-[#68C142] group-hover:border-[#71CF48]";
+    hrBorderColor = " border-[#71CF48] group-hover:border-[#68C142]";
   } else if (variant === "save-changes") {
-    buttonClass += " bg-[#71CF48] hover:bg-[#68C142]";
+    buttonClass += " bg-[#68C142] hover:bg-[#71CF48]";
     icon = <Icons.check />;
-    hrBorderColor = " border-[#68C142] group-hover:border-[#71CF48]";
+    hrBorderColor = " border-[#71CF48] group-hover:border-[#68C142]";
   } else if (variant === "cancel-changes") {
     buttonClass += " bg-[#FE4C4A] hover:bg-[#EB4345]";
     icon = <Icons.x />;
@@ -34,7 +34,7 @@ export default function Button({ variant = "create", onClick, text }: Props) {
   }
 
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button className={buttonClass} onClick={onClick} type="submit">
       <div className="flex justify-center flex-1 p-2">{text}</div>
       <div className="flex items-center justify-start h-full mr-2 gap-2">
         <hr className={`border-r h-full ${hrBorderColor}`} />
