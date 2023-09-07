@@ -1,14 +1,14 @@
 export function getStatusClassName(status: string) {
-  console.log("status", status);
-
   switch (status) {
     case "Completed":
-      return " hover:bg-red-500";
+      return "bg-brand-green-main";
     case "On Hold":
       return "bg-brand-red";
     case "On Road":
       return "bg-brand-yellow";
-    default:
+    case "In Progress":
       return "bg-brand-green-light";
+    default:
+      return "";
   }
 }
