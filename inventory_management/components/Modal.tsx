@@ -14,7 +14,7 @@ const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="fixed inset-0 bg-black opacity-50 transition-all" />
       <div className="relative z-10 bg-white rounded-lg shadow-md flex flex-col justify-between  w-[868px]">
-        <div className="flex items-center justify-between rounded-lg bg-[#F8F8FA] w-full px-5 py-2">
+        <div className="flex items-center justify-between rounded-lg bg-brand-background w-full px-5 py-2">
           {title}
           <button
             onClick={onClose}
