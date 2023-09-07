@@ -7,7 +7,6 @@ import * as z from "zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -17,6 +16,8 @@ import Modal from "../Modal";
 import Button from "../Button";
 import { Input } from "../ui/input";
 import { Dropdown } from "../ui/select";
+import useJobsites from "@/store/useJobsites";
+import { Categories } from "@/types";
 
 const FormSchema = z.object({
   name: z.string({}),
@@ -35,19 +36,26 @@ const FormSchema = z.object({
 export default function AddJob({
   isOpen,
   handleClose,
-  onAddJob,
 }: {
   isOpen: boolean;
   handleClose: () => void;
-  onAddJob: () => void;
 }) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
+  const { add, jobSites } = useJobsites();
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     alert(JSON.stringify(data, null, 2));
-    onAddJob();
+    const newData = {
+      id: jobSites.length + 1,
+      name: data.name,
+      categories: data.categories.map(
+        (category) => category.label as Categories
+      ),
+      status: data.status.label,
+    };
+    add(newData);
     handleClose();
     form.reset();
   }
@@ -58,6 +66,7 @@ export default function AddJob({
       onClose={() => {
         handleClose();
         form.clearErrors();
+        form.reset();
       }}
       title="Create Jobsite"
     >
@@ -82,7 +91,7 @@ export default function AddJob({
               name="categories"
               render={({ field }) => (
                 <FormItem className="w-3/4">
-                  <FormLabel className="ml-4">Status</FormLabel>
+                  <FormLabel className="ml-4">Category Included</FormLabel>
                   <FormControl>
                     <Dropdown
                       {...field}

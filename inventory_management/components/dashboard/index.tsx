@@ -1,18 +1,15 @@
-import React from "react";
+"use client";
+
+import React, { Suspense, useEffect } from "react";
 import Table from "../layout/Table";
-import { Item } from "@/types";
+import useJobsites from "@/store/useJobsites";
 
-async function getData(): Promise<Item[]> {
-  const res = await fetch("http://localhost:3001/jobsites");
+export default function index() {
+  const { get, jobSites } = useJobsites();
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  useEffect(() => {
+    get();
+  }, []);
 
-  return res.json();
-}
-
-export default async function index() {
-  const data = await getData();
-  return <Table data={data} />;
+  return <Table data={jobSites} />;
 }
