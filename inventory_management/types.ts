@@ -3,8 +3,11 @@ export interface Option {
   label: string;
 }
 
+export type Categories = "Sidewalk Shed" | "Scaffold" | "Shoring";
+
 export interface Item {
-  id: string;
-  title: string;
+  id: number;
+  name: string;
   status: string;
+  categories: Categories[];
 }

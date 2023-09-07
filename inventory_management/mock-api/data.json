@@ -2,112 +2,132 @@
   "jobsites": [
     {
       "id": 1,
-      "title": "1658 E 23rd St, Brooklyn, NY 11229, USA",
+      "name": "1658 E 23rd St, Brooklyn, NY 11229, USA",
       "status": "Completed"
     },
     {
       "id": 2,
-      "title": "1705 E 22nd St, Brooklyn, NY 11229, USA",
+      "name": "1705 E 22nd St, Brooklyn, NY 11229, USA",
       "status": "On Hold"
     },
     {
       "id": 3,
-      "title": "47 Lake St, Brooklyn, NY 11223, USA",
+      "name": "47 Lake St, Brooklyn, NY 11223, USA",
       "status": "Completed"
     },
     {
       "id": 4,
-      "title": "256 Bay 19th St, Brooklyn, NY 11214, USA",
+      "name": "256 Bay 19th St, Brooklyn, NY 11214, USA",
       "status": "On Road"
     },
     {
       "id": 5,
-      "title": "6908 13th Ave, Brooklyn, NY 11228, USA",
+      "name": "6908 13th Ave, Brooklyn, NY 11228, USA",
       "status": "On Road"
     },
     {
       "id": 6,
-      "title": "1329 56th St, Brooklyn, NY 11219, USA",
+      "name": "1329 56th St, Brooklyn, NY 11219, USA",
       "status": "On Road"
     },
     {
       "id": 7,
-      "title": "588 Lenox Rd, Brooklyn, NY 11203, USA",
+      "name": "588 Lenox Rd, Brooklyn, NY 11203, USA",
       "status": "On Road"
     },
     {
       "id": 8,
-      "title": "200 Newport St, Brooklyn, NY 11212, USA",
+      "name": "200 Newport St, Brooklyn, NY 11212, USA",
       "status": "On Road"
     },
     {
       "id": 9,
-      "title": "158-39 99th St, Queens, NY 11414, USA",
+      "name": "158-39 99th St, Queens, NY 11414, USA",
       "status": "On Road"
     },
     {
       "id": 10,
-      "title": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
+      "name": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
       "status": "In Progress"
     },
     {
       "id": 11,
-      "title": "95-01 Linden Blvd, Jamaica, NY 11417, USA",
+      "name": "95-01 Linden Blvd, Jamaica, NY 11417, USA",
       "status": "On Road"
     },
     {
       "id": 12,
-      "title": "1705 E 22nd St, Brooklyn, NY 11229, USA",
+      "name": "1705 E 22nd St, Brooklyn, NY 11229, USA",
       "status": "On Hold"
     },
     {
       "id": 13,
-      "title": "47 Lake St, Brooklyn, NY 11223, USA",
+      "name": "47 Lake St, Brooklyn, NY 11223, USA",
       "status": "Completed"
     },
     {
       "id": 14,
-      "title": "256 Bay 19th St, Brooklyn, NY 11214, USA",
+      "name": "256 Bay 19th St, Brooklyn, NY 11214, USA",
       "status": "On Road"
     },
     {
       "id": 15,
-      "title": "6908 13th Ave, Brooklyn, NY 11228, USA",
+      "name": "6908 13th Ave, Brooklyn, NY 11228, USA",
       "status": "On Road"
     },
     {
       "id": 16,
-      "title": "1329 56th St, Brooklyn, NY 11219, USA",
+      "name": "1329 56th St, Brooklyn, NY 11219, USA",
       "status": "On Road"
     },
     {
       "id": 17,
-      "title": "588 Lenox Rd, Brooklyn, NY 11203, USA",
+      "name": "588 Lenox Rd, Brooklyn, NY 11203, USA",
       "status": "On Road"
     },
     {
       "id": 18,
-      "title": "200 Newport St, Brooklyn, NY 11212, USA",
+      "name": "200 Newport St, Brooklyn, NY 11212, USA",
       "status": "On Road"
     },
     {
       "id": 19,
-      "title": "158-39 99th St, Queens, NY 11414, USA",
+      "name": "158-39 99th St, Queens, NY 11414, USA",
       "status": "On Road"
     },
     {
       "id": 20,
-      "title": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
+      "name": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
       "status": "In Progress"
     },
     {
       "id": 21,
-      "title": "95-01 Linden Blvd, Jamaica, NY 11417, USA",
+      "name": "95-01 Linden Blvd, Jamaica, NY 11417, USA",
       "status": "On Road"
     },
     {
       "id": 22,
-      "title": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
+      "name": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
+      "status": "In Progress"
+    },
+    {
+      "id": "23",
+      "name": "822-04 Shore Pkwy, Jamaica, NY 11414, USA",
+      "categories": [
+        "Sidewalk Shed",
+        "Scaffold",
+        "Shoring"
+      ],
+      "status": "On Road"
+    },
+    {
+      "id": 24,
+      "name": "822-04 Shore Pkwy, Jamaica, NY 11414, USA",
+      "categories": [
+        "Sidewalk Shed",
+        "Scaffold",
+        "Shoring"
+      ],
       "status": "In Progress"
     }
   ]
