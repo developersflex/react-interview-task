@@ -6,9 +6,7 @@ export function getStatusClassName(status: string) {
       return "bg-brand-red";
     case "On Road":
       return "bg-brand-yellow";
-    case "In Progress":
-      return "bg-brand-green-light";
     default:
-      return "";
+      return "bg-brand-green-light";
   }
 }
