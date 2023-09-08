@@ -1,17 +1,20 @@
-import { Category } from "@/types";
+import { Categories, Category, CategoryItem } from "@/types";
+import { findCategoryByName } from "@/utils/functions";
 import { create } from "zustand";
 
 type customersStoreState = {
   categories: Category[];
   category: Category | null;
+  categoryItems: CategoryItem[] | [];
   get: () => void;
-  getById: (id: string) => void;
-  add: (newJobSite: Category) => void; // Add the add function
+  getItems: (categoryName: string) => void;
+  add: (categoryName: Categories, newCategoryItem: CategoryItem) => void;
 };
 
 const useCategories = create<customersStoreState>((set, get) => ({
   categories: [],
   category: null,
+  categoryItems: [],
 
   get: async () => {
     try {
@@ -23,27 +26,66 @@ const useCategories = create<customersStoreState>((set, get) => ({
     }
   },
 
-  getById: async (id: string) => {
+  add: async (categoryName: string, newItem: CategoryItem) => {
     try {
-      const response = await fetch(`  http://localhost:3001/categories/${id}`);
-      const category = await response.json();
-      set({ category });
+      const categoryToUpdate = get().categories.find(
+        (category) => category.name === categoryName
+      );
+
+      if (categoryToUpdate) {
+        const nextId =
+          categoryToUpdate.items.reduce(
+            (maxId, item) => (item.id > maxId ? item.id : maxId),
+            0
+          ) + 1;
+
+        newItem.id = nextId;
+        const updatedCategory = {
+          ...categoryToUpdate,
+          items: [...categoryToUpdate.items, newItem],
+        };
+        const categoryIdToUpdate = categoryToUpdate.id;
+        const response = await fetch(
+          `http://localhost:3001/categories/${categoryIdToUpdate}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedCategory),
+          }
+        );
+
+        if (response.ok) {
+          set((state) => {
+            return {
+              ...state,
+              categories: state.categories.map((category) =>
+                category.id === categoryIdToUpdate ? updatedCategory : category
+              ),
+            };
+          });
+
+          console.log("Item added successfully.");
+        } else {
+          console.error("Failed to update category.");
+        }
+      } else {
+        console.error("Category not found.");
+      }
     } catch (error) {
-      set({ category: null });
+      console.error("Error:", error);
     }
   },
+  getItems: (categoryName: string) => {
+    const { categories } = get();
+    const category = findCategoryByName(categories, categoryName);
 
-  add: (newCategory: Category) => {
-    set((state) => ({
-      categories: [...state.categories, newCategory],
-    }));
-    fetch("http://localhost:3001/categories", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newCategory),
-    });
+    if (category) {
+      set({ categoryItems: category.items });
+    } else {
+      return [];
+    }
   },
 }));
 
