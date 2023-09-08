@@ -1,10 +1,8 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useState } from "react";
 import ContainerHeader from "@/components/layout/container-header";
 import Link from "next/link";
-import mockData from "@/mock-api/data.json";
 import Chip from "@/components/Chip";
-import useJobsites from "@/store/useJobsites";
-import { Icons } from "../Icons";
+import { Icons } from "@/components/Icons";
 
 interface Column {
   header: string;
@@ -18,6 +16,7 @@ interface Props {
   placeholder: string;
   children?: React.ReactNode;
   isItem?: boolean;
+  customFilter?: (item: any, filter: string) => boolean;
 }
 
 export default function Table({
@@ -26,6 +25,7 @@ export default function Table({
   placeholder,
   children,
   isItem = false,
+  customFilter,
 }: Props) {
   const [filter, setFilter] = useState<string>("");
 
@@ -34,14 +34,16 @@ export default function Table({
     setFilter(sanitizedInput);
   };
 
-  const filteredData = data?.filter((item) =>
-    item.name?.toLowerCase().includes(filter)
-  );
-
-  console.log("filteredData", filteredData);
+  const filteredData = filter
+    ? data?.filter((item) =>
+        customFilter
+          ? customFilter(item, filter)
+          : item.name?.toLowerCase().includes(filter)
+      )
+    : data;
 
   return (
-    <div className="flex flex-col gap-5 w-full shadow-md rounded-lg overflow-hidden bg-background">
+    <div className="flex flex-col gap-5 w-full shadow-md rounded-lg overflow-hidden bg-background ">
       <ContainerHeader text="Jobsites List" />
       <div className="w-full flex flex-col gap-5 px-4 md:flex-row md:justify-end">
         <div className="relative">
@@ -50,7 +52,7 @@ export default function Table({
             placeholder={placeholder}
             value={filter}
             onChange={handleInputChange}
-            className="w-full md:w-96 h-8 pl-10 pr-4 py-2 rounded-md border flex items-center bg-brand-background-secondary placeholder-[#EAEAEA]"
+            className="w-full md:w-96 h-8 pl-10 pr-4 py-2 rounded-md border flex items-center bg-brand-background-secondary placeholder-bg-brand-background-secondary"
           />
         </div>
         {children}
@@ -66,15 +68,15 @@ export default function Table({
           </tr>
         </thead>
 
-        <Suspense fallback={<p>Loading....</p>}>
-          <tbody>
-            {data?.length === 0 ? (
-              <>
-                <tr>
-                  <td
-                    className="text-center p-2 bg-white h-96 text-base font-semibold border-t"
-                    colSpan={columns.length}
-                  >
+        <tbody>
+          {data?.length === 0 ? (
+            <>
+              <tr>
+                <td
+                  className="p-2 text-base font-semibold border-t h-[450px]"
+                  colSpan={columns.length}
+                >
+                  <div className="text-center">
                     <Icons.nodata className="w-full" />
                     {isItem ? (
                       <>
@@ -86,58 +88,51 @@ export default function Table({
                     ) : (
                       <p className="m-5">No data.</p>
                     )}
-                  </td>
+                  </div>
+                </td>
+              </tr>
+            </>
+          ) : filteredData?.length === 0 ? (
+            <>
+              <tr>
+                <td
+                  className="text-center p-2 bg-brand-background-secondary"
+                  colSpan={columns.length}
+                >
+                  <p>No results found for "{filter}".</p>
+                </td>
+              </tr>
+            </>
+          ) : (
+            filteredData?.map((item, index) => {
+              return (
+                <tr
+                  key={index}
+                  className={`text-left h-[34px] ${
+                    index % 2 === 0 ? "bg-brand-background-secondary" : ""
+                  }`}
+                >
+                  {columns.map((column, colIndex) => (
+                    <td key={colIndex} className={`${column.className}`}>
+                      {column.key === "name" ? (
+                        <Link
+                          href={`/jobsites/${item.id}`}
+                          className="text-[#1264A3] text-left  font-semibold whitespace-break-spaces"
+                        >
+                          {item[column.key]}
+                        </Link>
+                      ) : column.key === "status" ? (
+                        <Chip text={item[column.key]} />
+                      ) : (
+                        item[column.key]
+                      )}
+                    </td>
+                  ))}
                 </tr>
-              </>
-            ) : filteredData?.length === 0 ? (
-              <>
-                <tr>
-                  <td
-                    className="text-center p-2 bg-brand-background-secondary"
-                    colSpan={columns.length}
-                  >
-                    {isItem ? (
-                      <Icons.nodata />
-                    ) : (
-                      <p>No results found for "{filter}".</p>
-                    )}
-                  </td>
-                </tr>
-              </>
-            ) : (
-              filteredData?.map((item, index) => {
-                return (
-                  <tr
-                    key={index}
-                    className={`text-left h-[34px] ${
-                      index % 2 === 0 ? "bg-brand-background-secondary" : ""
-                    }`}
-                  >
-                    {columns.map((column, colIndex) => (
-                      <td
-                        key={colIndex}
-                        className={`pl-5 py-2 md:pl-[573px] md:py-0  ${column.className}`}
-                      >
-                        {column.key === "name" ? (
-                          <Link
-                            href={`/jobsites/${item.id}`}
-                            className="text-[#1264A3] text-left  font-semibold whitespace-break-spaces"
-                          >
-                            {item[column.key]}
-                          </Link>
-                        ) : column.key === "status" ? (
-                          <Chip text={item[column.key]} />
-                        ) : (
-                          item[column.key]
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                );
-              })
-            )}
-          </tbody>
-        </Suspense>
+              );
+            })
+          )}
+        </tbody>
       </table>
     </div>
   );
