@@ -1,3 +1,5 @@
+import { Category } from "@/types";
+
 export function getStatusClassName(status: string) {
   switch (status) {
     case "Completed":
@@ -22,3 +24,10 @@ export function getCategoryClassName(category: string) {
       return "bg-brand-purple-1000";
   }
 }
+
+export const findCategoryByName = (
+  categories: Category[],
+  categoryName: string
+): Category | undefined => {
+  return categories.find((category) => category.name === categoryName);
+};

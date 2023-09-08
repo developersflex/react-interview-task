@@ -12,10 +12,16 @@ export interface Item {
   categories: Categories[];
 }
 
-export interface Category {
-  id: string;
+export type CategoryItem = {
+  id: number;
   item: string;
   quantity: string;
   description: string;
   notes: string;
-}
+};
+
+export type Category = {
+  id: number;
+  name: string;
+  items: CategoryItem[];
+};
