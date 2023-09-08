@@ -12,3 +12,13 @@ export function getStatusClassName(status: string) {
       return "";
   }
 }
+export function getCategoryClassName(category: string) {
+  switch (category) {
+    case "Sidewalk Shed":
+      return "bg-brand-green-1002";
+    case "Scaffold":
+      return "bg-brand-yellow-1001";
+    default:
+      return "bg-brand-purple-1000";
+  }
+}

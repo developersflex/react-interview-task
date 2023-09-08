@@ -12,7 +12,7 @@ export default function Header({ onRoad, completed, onHold }: Props) {
       <div className="rounded-lg bg-brand-yellow-1000 h-28 flex items-center justify-center">
         {onRoad} On Road
       </div>
-      <div className="rounded-lg bg-brand-green-1001 h-28 flex items-center justify-center">
+      <div className="rounded-lg bg-brand-green-1000 h-28 flex items-center justify-center">
         {completed} Completed
       </div>
       <div className="rounded-lg bg-brand-red-1000 h-28 flex items-center justify-center">

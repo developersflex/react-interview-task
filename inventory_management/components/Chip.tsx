@@ -3,7 +3,7 @@ import React from "react";
 
 type Props = { text: string };
 
-export default function Badge({ text }: Props) {
+export default function Chip({ text }: Props) {
   return (
     <div className="w-full h-full flex justify-center items-center">
       <div

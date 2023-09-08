@@ -52,16 +52,24 @@ module.exports = {
         },
 
         brand: {
-          background: "#F8F8FA",
+          background: {
+            primary: "#F4F5F6",
+            secondary: "#F8F8FA",
+          },
           red: {
             1000: "#FE4C4A",
           },
           green: {
             1000: "#7AC14D",
             1001: "#B3D99B",
+            1002: "#67AA3C",
           },
           yellow: {
             1000: "#ECDE7C",
+            1001: "#EFD652",
+          },
+          purple: {
+            1000: "#9640BE",
           },
         },
       },

@@ -113,21 +113,13 @@
     {
       "id": "23",
       "name": "822-04 Shore Pkwy, Jamaica, NY 11414, USA",
-      "categories": [
-        "Sidewalk Shed",
-        "Scaffold",
-        "Shoring"
-      ],
+      "categories": ["Sidewalk Shed", "Scaffold", "Shoring"],
       "status": "On Road"
     },
     {
       "id": 24,
       "name": "822-04 Shore Pkwy, Jamaica, NY 11414, USA",
-      "categories": [
-        "Sidewalk Shed",
-        "Scaffold",
-        "Shoring"
-      ],
+      "categories": ["Sidewalk Shed", "Scaffold", "Shoring"],
       "status": "In Progress"
     }
   ]

@@ -1,19 +1,31 @@
-"use client";
-
-import React, { Suspense, useState } from "react";
-import Button from "../Button";
-import Badge from "../Badge";
-import { Icons } from "../Icons";
-import AddJob from "../dashboard/add-job";
+import React, { useState } from "react";
+import ContainerHeader from "./container-header";
 import Link from "next/link";
-import { Item } from "@/types";
 import mockData from "@/mock-api/data.json";
+import Button from "../Button";
+import AddJob from "../dashboard/add-job";
+import { getStatusClassName } from "@/utils/functions";
+import Chip from "../Chip";
 
-interface Props {
-  data: Item[];
+interface Column {
+  header: string;
+  key: string;
+  className?: string;
 }
 
-export default function Table({ data }: Props) {
+interface Props {
+  data: any[];
+  columns: Column[];
+  placeholder: string;
+  hasButton?: boolean;
+}
+
+export default function Table({
+  data,
+  columns,
+  placeholder,
+  hasButton = true,
+}: Props) {
   const [filter, setFilter] = useState<string>("");
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const sanitizedInput = e.target.value.toLowerCase();
@@ -22,39 +34,45 @@ export default function Table({ data }: Props) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const filteredData = data.filter((item) =>
+  const filteredData = data?.filter((item) =>
     item.name?.toLowerCase().includes(filter)
   );
 
   return (
-    <div className="flex flex-col gap-5 w-full shadow-md rounded-lg   overflow-hidden">
-      <div className="w-full  px-5 py-2 bg-brand-background">Title</div>
+    <div className="flex flex-col gap-5 w-full shadow-md rounded-lg overflow-hidden bg-background">
+      <ContainerHeader text="Jobsites List" />
       <div className="w-full flex flex-col gap-5 px-4 md:flex-row md:justify-end">
         <div className="relative">
-          <Icons.loop className="absolute bottom-1.5 left-2 pointer-events-none" />
           <input
             type="text"
-            placeholder="Search..."
+            placeholder={placeholder}
             value={filter}
             onChange={handleInputChange}
-            className="w-full md:w-96 h-8 pl-10 pr-4 py-2 rounded border flex items-center"
+            className="w-full md:w-96 h-8 pl-10 pr-4 py-2 rounded-md border flex items-center bg-brand-background-secondary placeholder-[#EAEAEA]"
           />
         </div>
-        <Button
-          text="Create"
-          variant="create"
-          onClick={() => setIsModalOpen(true)}
-        />
-        <AddJob
-          isOpen={isModalOpen}
-          handleClose={() => setIsModalOpen(false)}
-        />
+        {hasButton && (
+          <>
+            <Button
+              text="Create"
+              variant="create"
+              onClick={() => setIsModalOpen(true)}
+            />
+            <AddJob
+              isOpen={isModalOpen}
+              handleClose={() => setIsModalOpen(false)}
+            />
+          </>
+        )}
       </div>
       <table className="w-full">
         <thead>
           <tr>
-            <th className="text-center w-1/2">Jobsite Name</th>
-            <th className="w-1/2">Status</th>
+            {columns.map((column, index) => (
+              <th key={index} className={column.className}>
+                {column.header}
+              </th>
+            ))}
           </tr>
         </thead>
 
@@ -66,11 +84,12 @@ export default function Table({ data }: Props) {
                   <tr
                     key={index}
                     className={`text-center animate-pulse  h-[34px] ${
-                      index % 2 === 0 ? "bg-brand-background" : ""
+                      index % 2 === 0 ? "bg-brand-background-secondary" : ""
                     }`}
                   >
-                    <td></td>
-                    <td></td>
+                    {columns.map((column, colIndex) => (
+                      <td key={colIndex}></td>
+                    ))}
                   </tr>
                 )
               )}
@@ -78,31 +97,42 @@ export default function Table({ data }: Props) {
           ) : filteredData?.length === 0 ? (
             <>
               <tr>
-                <td className="text-center p-2 bg-brand-background" colSpan={2}>
+                <td
+                  className="text-center p-2 bg-brand-background-secondary"
+                  colSpan={columns.length}
+                >
                   No results found.
                 </td>
               </tr>
             </>
           ) : (
-            filteredData.map((item, index) => {
+            filteredData?.map((item, index) => {
               return (
                 <tr
                   key={index}
-                  className={`text-left ${
-                    index % 2 === 0 ? "bg-brand-background" : ""
+                  className={`text-left h-[34px] ${
+                    index % 2 === 0 ? "bg-brand-background-secondary" : ""
                   }`}
                 >
-                  <td className="pl-5 py-2 md:pl-[580px] md:py-0">
-                    <Link
-                      href={`/jobsites/${item.id}`}
-                      className="text-[#1264A3] text-left  font-semibold whitespace-break-spaces"
+                  {columns.map((column, colIndex) => (
+                    <td
+                      key={colIndex}
+                      className={`pl-5 py-2 md:pl-[573px] md:py-0  ${column.className}`}
                     >
-                      {item.name}
-                    </Link>
-                  </td>
-                  <td>
-                    <Badge text={item.status} />
-                  </td>
+                      {column.key === "name" ? (
+                        <Link
+                          href={`/jobsites/${item.id}`}
+                          className="text-[#1264A3] text-left  font-semibold whitespace-break-spaces"
+                        >
+                          {item[column.key]}
+                        </Link>
+                      ) : column.key === "status" ? (
+                        <Chip text={item[column.key]} />
+                      ) : (
+                        item[column.key]
+                      )}
+                    </td>
+                  ))}
                 </tr>
               );
             })
