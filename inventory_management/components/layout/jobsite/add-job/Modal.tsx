@@ -12,10 +12,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import Modal from "../Modal";
-import Button from "../Button";
-import { Input } from "../ui/input";
-import { Dropdown } from "../ui/select";
+import Modal from "@/components/Modal";
+import Button from "@/components/Button";
+import { Input } from "@/components/ui/input";
+import { Dropdown } from "@/components/ui/select";
 import useJobsites from "@/store/useJobsites";
 import { Categories } from "@/types";
 

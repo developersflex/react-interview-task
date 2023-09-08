@@ -11,3 +11,11 @@ export interface Item {
   status: string;
   categories: Categories[];
 }
+
+export interface Category {
+  id: string;
+  item: string;
+  quantity: string;
+  description: string;
+  notes: string;
+}

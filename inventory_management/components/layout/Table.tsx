@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import ContainerHeader from "./container-header";
+import ContainerHeader from "@/components/layout/container-header";
 import Link from "next/link";
 import mockData from "@/mock-api/data.json";
-import Button from "../Button";
-import AddJob from "../dashboard/add-job";
-import { getStatusClassName } from "@/utils/functions";
-import Chip from "../Chip";
+import Button from "@/components/Button";
+import Chip from "@/components/Chip";
+import AddCategory from "./jobsite/add-category";
+import AddJobsite from "./jobsite/add-job";
 
 interface Column {
   header: string;
@@ -32,8 +32,6 @@ export default function Table({
     setFilter(sanitizedInput);
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const filteredData = data?.filter((item) =>
     item.name?.toLowerCase().includes(filter)
   );
@@ -53,15 +51,8 @@ export default function Table({
         </div>
         {hasButton && (
           <>
-            <Button
-              text="Create"
-              variant="create"
-              onClick={() => setIsModalOpen(true)}
-            />
-            <AddJob
-              isOpen={isModalOpen}
-              handleClose={() => setIsModalOpen(false)}
-            />
+            <AddJobsite />
+            <AddCategory />
           </>
         )}
       </div>
