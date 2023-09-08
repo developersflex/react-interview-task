@@ -113,15 +113,103 @@
     {
       "id": "23",
       "name": "822-04 Shore Pkwy, Jamaica, NY 11414, USA",
-      "categories": ["Sidewalk Shed", "Scaffold", "Shoring"],
+      "categories": [
+        "Sidewalk Shed",
+        "Scaffold",
+        "Shoring"
+      ],
       "status": "On Road"
     },
     {
       "id": 24,
       "name": "822-04 Shore Pkwy, Jamaica, NY 11414, USA",
-      "categories": ["Sidewalk Shed", "Scaffold", "Shoring"],
+      "categories": [
+        "Sidewalk Shed",
+        "Scaffold",
+        "Shoring"
+      ],
       "status": "In Progress"
     }
   ],
-  "categories": []
+  "categories": [
+    {
+      "id": 0,
+      "name": "Scaffold",
+      "items": [
+        {
+          "id": 1,
+          "item": "G42295",
+          "quantity": "10",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "id": 2,
+          "item": "M721",
+          "quantity": "83",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "id": 3,
+          "item": "M94796",
+          "quantity": "31",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Shoring",
+      "items": [
+        {
+          "id": 0,
+          "item": "Another Item",
+          "quantity": "5",
+          "description": "Description of Another Item",
+          "notes": "Notes for Another Item"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Sidewalk Shed",
+      "items": [
+        {
+          "id": 1,
+          "item": "M94796",
+          "quantity": "31",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        }
+      ]
+    },
+    {
+      "name": "Scaffold",
+      "items": [
+        {
+          "id": 0,
+          "item": "G42295",
+          "quantity": "10",
+          "description": "description",
+          "notes": "description"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "Scaffold",
+      "items": [
+        {
+          "id": 0,
+          "item": "G42295",
+          "quantity": "Durim Fetahaj",
+          "description": "description",
+          "notes": "notes"
+        }
+      ],
+      "id": 4
+    }
+  ]
 }
