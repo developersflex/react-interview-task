@@ -7,6 +7,16 @@ module.exports = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  safelist: [
+    "bg-brand-green-1000",
+    "bg-brand-red-1000",
+    "bg-brand-yellow-1000",
+    "bg-brand-green-1002",
+    "bg-brand-green-1001",
+    "bg-brand-yellow-1001",
+    "bg-brand-purple-1000",
+    // ...
+  ],
   theme: {
     container: {
       center: true,
