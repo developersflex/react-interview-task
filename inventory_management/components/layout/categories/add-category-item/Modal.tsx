@@ -1,37 +1,35 @@
-"use client";
-
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
-// import { Dropdown } from "@/components/ui/select";
-// import useCategories from "@/store/useCategories";
-import { Categories, Category } from "@/types";
 import Select from "@/components/Select";
 import Textarea from "@/components/Textarea";
 import { ChangeEvent, FormEvent, useState } from "react";
 import useCategories from "@/store/useCategories";
+import { Categories, CategoryItem } from "@/types";
 
-const initialFormData: Category = {
-  id: "",
+const initialFormData: CategoryItem = {
+  id: 0,
   item: "",
   quantity: "",
   description: "",
   notes: "",
 };
 
-export default function AddCategory({
+export default function AddItem({
   isOpen,
   handleClose,
+  categoryName,
 }: {
   isOpen: boolean;
   handleClose: () => void;
+  categoryName: Categories;
 }) {
-  const [formData, setFormData] = useState<Category>(initialFormData);
+  const [formData, setFormData] = useState(initialFormData);
   const { add } = useCategories();
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
-    field: keyof FormData
+    field: keyof typeof initialFormData
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -42,7 +40,7 @@ export default function AddCategory({
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    add(formData as Category);
+    add(categoryName, formData);
     handleClose();
   };
 
@@ -72,23 +70,23 @@ export default function AddCategory({
             ]}
             placeholder="Search & Select item"
             label="Item"
-            onChange={(e) => handleChange(e, "item" as keyof FormData)}
+            onChange={(e) => handleChange(e, "item")}
           />
           <Input
             label="Quantity"
             placeholder="Set Quantity"
-            onChange={(e) => handleChange(e, "quantity" as keyof FormData)}
+            onChange={(e) => handleChange(e, "quantity")}
           />
         </div>
         <Textarea
           label="Description"
           placeholder="Type the description..."
-          onChange={(e) => handleChange(e, "description" as keyof FormData)}
+          onChange={(e) => handleChange(e, "description")}
         />
         <Textarea
           label="Notes"
           placeholder="Type a note..."
-          onChange={(e) => handleChange(e, "notes" as keyof FormData)}
+          onChange={(e) => handleChange(e, "notes")}
         />
         <div className="w-full justify-end flex ">
           <Button text="Save" variant="save-changes" />

@@ -17,7 +17,7 @@ function Category({ name, onClick, isSelected }: Props) {
 
   return (
     <div
-      className={`relative text-center font-semibold py-1 my-2 rounded-md ${
+      className={`relative cursor-pointer text-center font-semibold py-1 my-2 rounded-md ${
         isSelected
           ? `text-white ${getCategoryClassName(name)}`
           : "bg-brand-background-secondary"

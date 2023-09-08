@@ -6,7 +6,7 @@ type customersStoreState = {
   jobSite: Item | null;
   get: () => void;
   getById: (id: string) => void;
-  add: (newJobSite: Item) => void; // Add the add function
+  add: (newJobSite: Item) => void;
 };
 
 const useJobsites = create<customersStoreState>((set, get) => ({
