@@ -15,7 +15,17 @@ module.exports = {
     "bg-brand-green-1001",
     "bg-brand-yellow-1001",
     "bg-brand-purple-1000",
-    // ...
+    "hover:bg-brand-green-1000",
+    "hover:bg-brand-red-1000",
+    "hover:bg-brand-yellow-1000",
+    "hover:bg-brand-green-1002",
+    "hover:bg-brand-green-1001",
+    "hover:bg-brand-yellow-1001",
+    "hover:bg-brand-purple-1000",
+    "fill-brand-green-1000",
+    "fill-brand-red-1000",
+    "fill-brand-yellow-1000",
+    "fill-brand-green-1001",
   ],
   theme: {
     container: {
