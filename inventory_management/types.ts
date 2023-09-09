@@ -3,13 +3,13 @@ export interface Option {
   label: string;
 }
 
+export type Status = "Completed" | "In Progress" | "On Road" | "On Hold";
+
 export type Categories = "Sidewalk Shed" | "Scaffold" | "Shoring";
 
-export interface Item {
-  id: number;
+export interface Jobsite {
   name: string;
   status: string;
-  categories: Categories[];
 }
 
 export type CategoryItem = {
