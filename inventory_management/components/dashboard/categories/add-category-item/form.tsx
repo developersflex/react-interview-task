@@ -50,9 +50,9 @@ export default function AddJob({
           <>
             <form
               onSubmit={handleSubmit}
-              className="h-full flex-col flex justify-between"
+              className="h-full flex-col gap-4 flex justify-between"
             >
-              <div className="flex gap-4">
+              <div className="flex flex-col gap-4 md:flex-row">
                 <Select
                   options={[
                     { label: "G42295", value: "G42295" },

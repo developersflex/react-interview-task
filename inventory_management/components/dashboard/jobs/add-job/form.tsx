@@ -37,11 +37,11 @@ export default function AddJob({
           <>
             <form
               onSubmit={handleSubmit}
-              className="h-full flex-col flex justify-between"
+              className="h-full flex-col flex justify-between "
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 md:mb-24 mb-10">
                 <Input label="Name" placeholder="Name" name="name" />
-                <div className="flex gap-5">
+                <div className="flex flex-col gap-5 md:flex-row">
                   <Select
                     options={[
                       { label: "Sidewalk Shed", value: "Sidewalk Shed" },
@@ -68,7 +68,7 @@ export default function AddJob({
                   />
                 </div>
               </div>
-              <div className=" w-full justify-end flex gap-5">
+              <div className="w-full flex-col justify-end flex gap-2 md:flex-row">
                 <Button
                   text="Cancel Changes"
                   variant="destructive"

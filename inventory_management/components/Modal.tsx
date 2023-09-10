@@ -13,7 +13,7 @@ const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50  ">
       <div className="fixed inset-0 bg-black opacity-50 transition-all" />
-      <div className="relative z-10 bg-white rounded-lg shadow-md flex flex-col justify-between md:w-[868px] min-h-[400px]">
+      <div className="relative z-10 bg-white rounded-lg shadow-md w-[90%] flex flex-col justify-between md:w-[868px] md:min-h-[400px]">
         {/* modal header */}
         <div className="px-5 py-3 bg-brand-background-primary rounded-md">
           {title}
@@ -38,7 +38,7 @@ const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
           </button>
         </div>
         {/* modal content */}
-        <div className="h-full p-5">{children}</div>
+        <div className="h-full p-5 flex-1">{children}</div>
       </div>
     </div>
   );

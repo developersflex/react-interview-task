@@ -50,11 +50,12 @@ const index = ({ slug }: Props) => {
                 />
               ))}
           </div>
-          <div className="w-full  flex justify-center items-center">
+          <div className="w-full flex justify-center ">
             <Button
               variant="link"
               text="Go Back"
               onClick={() => router.back()}
+              className="w-full md:w-fit"
             />
           </div>
         </div>
