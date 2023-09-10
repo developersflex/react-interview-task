@@ -11,10 +11,11 @@ const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 ">
+    <div className="fixed inset-0 flex items-center justify-center z-50  ">
       <div className="fixed inset-0 bg-black opacity-50 transition-all" />
-      <div className="relative z-10 bg-white rounded-lg shadow-md flex flex-col justify-between min-h-[400px] w-fit md:w-[868px]">
-        <div className="flex items-center justify-between rounded-lg bg-brand-background w-full px-5 py-2">
+      <div className="relative z-10 bg-white rounded-lg shadow-md flex flex-col justify-between md:w-[868px] min-h-[400px]">
+        {/* modal header */}
+        <div className="px-5 py-3 bg-brand-background-primary rounded-md">
           {title}
           <button
             onClick={onClose}
@@ -36,9 +37,8 @@ const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
             </svg>
           </button>
         </div>
-        <div className="h-full justify-between flex flex-col p-5 gap-5">
-          {children}
-        </div>
+        {/* modal content */}
+        <div className="h-full p-5">{children}</div>
       </div>
     </div>
   );

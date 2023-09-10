@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
 import React, { useState } from "react";
-import AddJob from "./Modal";
+import AddJob from "./form";
 
 type Props = {};
 

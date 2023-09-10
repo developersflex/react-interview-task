@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
 import React, { useState } from "react";
-import AddItem from "./Modal";
+import AddItem from "./form";
 import { Categories } from "@/types";
 
 type Props = {

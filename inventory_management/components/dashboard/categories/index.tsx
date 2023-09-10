@@ -5,11 +5,11 @@ import ContainerHeader from "../../layout/container-header";
 import Button from "@/components/Button";
 import Table from "../../layout/Table";
 import { useRouter } from "next/navigation";
-import Category from "../../layout/categories/category-button";
+import Category from "./category-button";
 import { columns } from "./columns";
 import useJobsites from "@/store/useJobsites";
 import { Categories } from "@/types";
-import AddCategory from "@/components/layout/categories/add-category-item";
+import AddCategory from "@/components/dashboard/categories/add-category-item";
 import useCategories from "@/store/useCategories";
 
 type Props = {
@@ -18,7 +18,7 @@ type Props = {
 
 const index = ({ slug }: Props) => {
   const { getById, jobSite } = useJobsites();
-  const { get, categories, getItems, categoryItems } = useCategories();
+  const { get, getItems, categoryItems } = useCategories();
   const [selectedCategory, setSelectedCategory] = useState<Categories | null>(
     null
   );
