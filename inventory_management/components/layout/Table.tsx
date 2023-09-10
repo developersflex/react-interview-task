@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import ContainerHeader from "@/components/layout/container-header";
-import Link from "next/link";
-import Chip from "@/components/Chip";
 import { Icons } from "@/components/Icons";
 
 interface Column {
   header: string;
   key: string;
   className?: string;
+  render?: (item: any) => React.ReactNode;
 }
 
 interface Props {
@@ -114,18 +113,7 @@ export default function Table({
                 >
                   {columns.map((column, colIndex) => (
                     <td key={colIndex} className={`${column.className}`}>
-                      {column.key === "name" ? (
-                        <Link
-                          href={`/jobsites/${item.id}`}
-                          className="text-[#1264A3] text-left  font-semibold whitespace-break-spaces"
-                        >
-                          {item[column.key]}
-                        </Link>
-                      ) : column.key === "status" ? (
-                        <Chip text={item[column.key]} />
-                      ) : (
-                        item[column.key]
-                      )}
+                      {column.render ? column.render(item) : item[column.key]}
                     </td>
                   ))}
                 </tr>
