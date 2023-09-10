@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import { Button } from "@/components/Button";
 import React, { useState } from "react";
 import AddJob from "./form";
 
@@ -9,7 +9,7 @@ function index({}: Props) {
 
   return (
     <>
-      <Button text="Create" variant="create" onClick={() => setIsOpen(true)} />
+      <Button text="Create" onClick={() => setIsOpen(true)} />
       <AddJob isOpen={isOpen} handleClose={() => setIsOpen(false)} />
     </>
   );

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import ContainerHeader from "../../layout/container-header";
-import Button from "@/components/Button";
 import Table from "../../layout/Table";
 import { useRouter } from "next/navigation";
 import Category from "./category-button";
@@ -11,6 +10,7 @@ import useJobsites from "@/store/useJobsites";
 import { Categories } from "@/types";
 import AddCategory from "@/components/dashboard/categories/add-category-item";
 import useCategories from "@/store/useCategories";
+import { Button } from "@/components/Button";
 
 type Props = {
   slug: string;
@@ -52,7 +52,7 @@ const index = ({ slug }: Props) => {
           </div>
           <div className="w-full  flex justify-center items-center">
             <Button
-              variant="go-back"
+              variant="link"
               text="Go Back"
               onClick={() => router.back()}
             />

@@ -1,12 +1,12 @@
 "use client";
 
 import Modal from "@/components/Modal";
-import Button from "@/components/Button";
 import useJobsites from "@/store/useJobsites";
 import Select from "@/components/Select";
 import Input from "@/components/Input";
 import { Formik } from "formik";
 import { addJob } from "@/utils/validations";
+import { Button } from "@/components/Button";
 
 export default function AddJob({
   isOpen,
@@ -71,10 +71,10 @@ export default function AddJob({
               <div className=" w-full justify-end flex gap-5">
                 <Button
                   text="Cancel Changes"
-                  variant="cancel-changes"
+                  variant="destructive"
                   onClick={() => handleClose()}
                 />
-                <Button text="Save" variant="save-changes" />
+                <Button text="Save Changes" />
               </div>
             </form>
           </>

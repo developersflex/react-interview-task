@@ -1,7 +1,6 @@
 "use client";
 
 import Modal from "@/components/Modal";
-import Button from "@/components/Button";
 import Select from "@/components/Select";
 import Input from "@/components/Input";
 import { Formik } from "formik";
@@ -9,6 +8,7 @@ import { addItem } from "@/utils/validations";
 import useCategories from "@/store/useCategories";
 import { Categories } from "@/types";
 import Textarea from "@/components/Textarea";
+import { Button } from "@/components/Button";
 
 export default function AddJob({
   isOpen,
@@ -92,10 +92,10 @@ export default function AddJob({
               <div className=" w-full justify-end flex gap-5">
                 <Button
                   text="Cancel Changes"
-                  variant="cancel-changes"
+                  variant="destructive"
                   onClick={() => handleClose()}
                 />
-                <Button text="Save" variant="save-changes" />
+                <Button text="Save" />
               </div>
             </form>
           </>
