@@ -26,6 +26,7 @@ module.exports = {
     "fill-brand-red-1000",
     "fill-brand-yellow-1000",
     "fill-brand-green-1001",
+    "fill-brand-purple-1000",
   ],
   theme: {
     container: {
