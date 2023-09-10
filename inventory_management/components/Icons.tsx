@@ -132,7 +132,7 @@ export const Icons = {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_429_392)">
+      <g clipPath="url(#clip0_429_392)">
         <g>
           <path
             d="M0.471924 106.161L78.1189 150.997L131.559 120.141L53.9099 75.3091L0.471924 106.161Z"

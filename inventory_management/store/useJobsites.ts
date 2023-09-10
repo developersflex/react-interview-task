@@ -1,12 +1,12 @@
-import { Item } from "@/types";
+import { Jobsite } from "@/types";
 import { create } from "zustand";
 
 type customersStoreState = {
-  jobSites: Item[];
-  jobSite: Item | null;
+  jobSites: Jobsite[];
+  jobSite: Jobsite | null;
   get: () => void;
   getById: (id: string) => void;
-  add: (newJobSite: Item) => void;
+  add: (newJobSite: Jobsite) => void;
 };
 
 const useJobsites = create<customersStoreState>((set, get) => ({
@@ -33,7 +33,7 @@ const useJobsites = create<customersStoreState>((set, get) => ({
     }
   },
 
-  add: (newJobSite: Item) => {
+  add: (newJobSite: Jobsite) => {
     set((state) => ({
       jobSites: [...state.jobSites, newJobSite],
     }));

@@ -10,6 +10,7 @@ export type Categories = "Sidewalk Shed" | "Scaffold" | "Shoring";
 export interface Jobsite {
   name: string;
   status: string;
+  categories: Categories[];
 }
 
 export type CategoryItem = {

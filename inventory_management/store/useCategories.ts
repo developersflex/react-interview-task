@@ -16,7 +16,7 @@ const useCategories = create<customersStoreState>((set, get) => ({
 
   get: async () => {
     try {
-      const response = await fetch(`${API_URL}/categories`);
+      const response = await fetch(`${API_URL}/items`);
       const categories = await response.json();
       set({ categories });
     } catch (error) {

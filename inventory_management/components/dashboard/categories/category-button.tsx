@@ -25,7 +25,7 @@ function Category({ name, onClick, isSelected }: Props) {
       onClick={handleClick}
     >
       {name}
-      <Icons.check className="absolute right-2 top-2" />
+      {isSelected && <Icons.check className="absolute right-2 top-2" />}
     </div>
   );
 }
