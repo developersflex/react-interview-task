@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Icons } from "./Icons";
+import { Icons } from "../Icons";
 import {
   circleDynamicBgStyles,
   getStatusClassName,
   hoverDynamicBgStyles,
 } from "@/utils/functions";
+import { useField, useFormikContext } from "formik";
+import MultiSelect from "./MultiSelect";
 
 interface Option {
   label: string;
@@ -13,31 +15,47 @@ interface Option {
 
 interface SelectProps {
   options: Option[];
-  selectedValue: string;
-  onSelect: (value: string) => void;
   label: string;
   placeholder: string;
+  name: string;
+  isMulti?: boolean;
+  className?: string;
 }
 
 const Select: React.FC<SelectProps> = ({
   options,
-  selectedValue,
-  onSelect,
   label,
   placeholder,
+  name,
+  isMulti = false,
+  className,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [field, meta] = useField(name);
+  const hasError = meta.touched && meta.error;
+  const { setFieldValue } = useFormikContext();
 
   const handleSelect = (option: Option) => {
-    onSelect(option.value);
+    setFieldValue(name, option.value);
     setIsOpen(false);
   };
 
-  return (
-    <div className="relative inline-block text-left w-full">
-      <div>
-        <label className="ml-4 text-base font-semibold">{label}</label>
+  if (isMulti) {
+    return (
+      <MultiSelect
+        options={options}
+        label={label}
+        placeholder={placeholder}
+        name={name}
+        className={className}
+      />
+    );
+  }
 
+  return (
+    <div className={`relative mb-5 inline-block text-left w-full ${className}`}>
+      <div className="relative">
+        <label className="ml-4 text-base font-semibold">{label}</label>
         <button
           onClick={() => setIsOpen(!isOpen)}
           type="button"
@@ -48,10 +66,10 @@ const Select: React.FC<SelectProps> = ({
           aria-haspopup="listbox"
           placeholder="Select one"
         >
-          {selectedValue ? (
+          {field.value ? (
             <div className="flex items-center gap-1.5">
-              <Icons.dot className={circleDynamicBgStyles(selectedValue)} />
-              {selectedValue}
+              <Icons.dot className={circleDynamicBgStyles(field.value)} />
+              {field.value}
             </div>
           ) : (
             <span className="text-[#E0E0E1]">{placeholder}</span>
@@ -60,11 +78,16 @@ const Select: React.FC<SelectProps> = ({
             className={`transition ${isOpen ? "rotate-180" : ""}`}
           />
         </button>
+        {hasError && (
+          <p className="text-brand-red-1000 text-xs ml-2 absolute -bottom-5">
+            {meta.error}
+          </p>
+        )}
       </div>
 
       {isOpen && (
         <div
-          className="absolute  w-full bg-white shadow-md rounded-b-md overflow-hidden"
+          className="absolute  w-full bg-white shadow-md z-10 rounded-b-md overflow-hidden"
           role="listbox"
           aria-labelledby="options-menu"
         >
@@ -73,11 +96,11 @@ const Select: React.FC<SelectProps> = ({
               key={option.value}
               onClick={() => handleSelect(option)}
               type="button"
-              className={`block px-2 py-2 text-sm text-[#323338] w-full text-left  
-              } border-t first:border-none hover:text-white
+              className={`block px-2 py-2 text-sm text-[#323338] w-full text-left 
+              } border-t first:border-none hover:text-gray-500
               ${hoverDynamicBgStyles[option.label]}
               ${
-                option.value === selectedValue
+                option.value === field.value
                   ? `text-white bg-${getStatusClassName(option.label)}`
                   : ""
               }
