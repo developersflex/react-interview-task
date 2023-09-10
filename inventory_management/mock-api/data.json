@@ -1,214 +1,55 @@
 {
   "jobsites": [
     {
-      "id": 1,
-      "name": "1658 E 23rd St, Brooklyn, NY 11229, USA",
-      "status": "Completed"
-    },
-    {
-      "id": 2,
-      "name": "1705 E 22nd St, Brooklyn, NY 11229, USA",
-      "status": "On Hold"
-    },
-    {
-      "id": 3,
-      "name": "47 Lake St, Brooklyn, NY 11223, USA",
-      "status": "Completed"
-    },
-    {
-      "id": 4,
-      "name": "256 Bay 19th St, Brooklyn, NY 11214, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 5,
-      "name": "6908 13th Ave, Brooklyn, NY 11228, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 6,
-      "name": "1329 56th St, Brooklyn, NY 11219, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 7,
-      "name": "588 Lenox Rd, Brooklyn, NY 11203, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 8,
-      "name": "200 Newport St, Brooklyn, NY 11212, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 9,
-      "name": "158-39 99th St, Queens, NY 11414, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 10,
       "name": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
-      "status": "In Progress"
-    },
-    {
-      "id": 11,
-      "name": "95-01 Linden Blvd, Jamaica, NY 11417, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 12,
-      "name": "1705 E 22nd St, Brooklyn, NY 11229, USA",
-      "status": "On Hold"
-    },
-    {
-      "id": 13,
-      "name": "47 Lake St, Brooklyn, NY 11223, USA",
-      "status": "Completed"
-    },
-    {
-      "id": 14,
-      "name": "256 Bay 19th St, Brooklyn, NY 11214, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 15,
-      "name": "6908 13th Ave, Brooklyn, NY 11228, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 16,
-      "name": "1329 56th St, Brooklyn, NY 11219, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 17,
-      "name": "588 Lenox Rd, Brooklyn, NY 11203, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 18,
-      "name": "200 Newport St, Brooklyn, NY 11212, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 19,
-      "name": "158-39 99th St, Queens, NY 11414, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 20,
-      "name": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
-      "status": "In Progress"
-    },
-    {
-      "id": 21,
-      "name": "95-01 Linden Blvd, Jamaica, NY 11417, USA",
-      "status": "On Road"
-    },
-    {
-      "id": 22,
-      "name": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
-      "status": "In Progress"
-    },
-    {
-      "id": "23",
-      "name": "822-04 Shore Pkwy, Jamaica, NY 11414, USA",
+      "status": "In Progress",
       "categories": [
         "Sidewalk Shed",
         "Scaffold",
         "Shoring"
       ],
-      "status": "On Road"
+      "id": 1
     },
     {
-      "id": 24,
-      "name": "822-04 Shore Pkwy, Jamaica, NY 11414, USA",
+      "name": "1705 E 22nd St, Brooklyn, NY 11229, USA",
+      "status": "On Hold",
       "categories": [
-        "Sidewalk Shed",
-        "Scaffold",
-        "Shoring"
+        "Sidewalk Shed"
       ],
-      "status": "In Progress"
+      "id": 2
     }
   ],
-  "categories": [
+  "items": [
     {
-      "id": 0,
-      "name": "Scaffold",
-      "items": [
-        {
-          "id": 1,
-          "item": "G42295",
-          "quantity": "10",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        },
-        {
-          "id": 2,
-          "item": "M721",
-          "quantity": "83",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        },
-        {
-          "id": 3,
-          "item": "M94796",
-          "quantity": "31",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        }
-      ]
+      "item": "G42295",
+      "quantity": "1",
+      "description": "test",
+      "notes": "test",
+      "category": "Sidewalk Shed",
+      "id": 1
     },
     {
-      "id": 1,
-      "name": "Shoring",
-      "items": [
-        {
-          "id": 0,
-          "item": "Another Item",
-          "quantity": "5",
-          "description": "Description of Another Item",
-          "notes": "Notes for Another Item"
-        }
-      ]
+      "item": "G42295",
+      "quantity": "2",
+      "description": "test",
+      "notes": "test",
+      "category": "Shoring",
+      "id": 2
     },
     {
-      "id": 2,
-      "name": "Sidewalk Shed",
-      "items": [
-        {
-          "id": 1,
-          "item": "M94796",
-          "quantity": "31",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        }
-      ]
-    },
-    {
-      "name": "Scaffold",
-      "items": [
-        {
-          "id": 0,
-          "item": "G42295",
-          "quantity": "10",
-          "description": "description",
-          "notes": "description"
-        }
-      ],
+      "item": "G42295",
+      "quantity": "123",
+      "description": "test",
+      "notes": "test",
+      "category": "Scaffold",
       "id": 3
     },
     {
-      "name": "Scaffold",
-      "items": [
-        {
-          "id": 0,
-          "item": "G42295",
-          "quantity": "Durim Fetahaj",
-          "description": "description",
-          "notes": "notes"
-        }
-      ],
+      "item": "G42295",
+      "quantity": "333",
+      "description": "ttt",
+      "notes": "ttt",
+      "category": "Scaffold",
       "id": 4
     }
   ]
