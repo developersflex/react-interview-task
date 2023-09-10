@@ -13,11 +13,11 @@ export interface Jobsite {
 }
 
 export type CategoryItem = {
-  id: number;
   item: string;
   quantity: string;
   description: string;
   notes: string;
+  category: Categories;
 };
 
 export type Category = {

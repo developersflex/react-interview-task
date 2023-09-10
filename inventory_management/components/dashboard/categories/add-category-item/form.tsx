@@ -19,7 +19,7 @@ export default function AddJob({
   handleClose: () => void;
   categoryName: Categories;
 }) {
-  const { add } = useCategories();
+  const { addCategoryItem } = useCategories();
 
   return (
     <Modal
@@ -42,7 +42,7 @@ export default function AddJob({
             ...values,
             category: categoryName,
           };
-          add(data);
+          addCategoryItem(data);
           handleClose();
         }}
       >
