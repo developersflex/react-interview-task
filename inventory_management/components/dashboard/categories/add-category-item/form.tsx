@@ -41,6 +41,7 @@ export default function AddItem({
           const data = {
             ...values,
             category: categoryName,
+            id: 0,
           };
           addCategoryItem(data);
           handleClose();

@@ -26,7 +26,7 @@ export default function AddJob({
       title="Create Jobsite"
     >
       <Formik
-        initialValues={{ name: "", status: "", categories: [] }}
+        initialValues={{ id: 0, name: "", status: "", categories: [] }}
         validationSchema={addJob}
         onSubmit={(values) => {
           add(values);
