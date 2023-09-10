@@ -12,8 +12,6 @@ type Props = {
 function index({ categoryName, text, data }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log("categoryName: " + categoryName);
-
   return (
     <>
       <button

@@ -18,7 +18,7 @@ type Props = {
 
 const index = ({ slug }: Props) => {
   const { getById, jobSite } = useJobsites();
-  const { get, getItems, categoryItems } = useCategories();
+  const { get, getItems, categoryItems, setCategoryItems } = useCategories();
   const [selectedCategory, setSelectedCategory] = useState<Categories | null>(
     null
   );
@@ -27,6 +27,10 @@ const index = ({ slug }: Props) => {
   useEffect(() => {
     getById(slug);
     get();
+
+    return () => {
+      setCategoryItems([]);
+    };
   }, []);
 
   const handleCategoryClick = (category: Categories) => {

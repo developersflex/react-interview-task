@@ -9,11 +9,14 @@ type customersStoreState = {
   getItems: (categoryName: string) => void;
   addCategoryItem: (newCategoryItem: CategoryItem) => void;
   editCategoryItem: (editedCategoryItem: CategoryItem) => void;
+  setCategoryItems: (items: []) => void;
 };
 
 const useCategories = create<customersStoreState>((set, get) => ({
   categories: [],
   categoryItems: [],
+
+  setCategoryItems: (items: []) => set({ categoryItems: items }),
 
   get: async () => {
     try {
