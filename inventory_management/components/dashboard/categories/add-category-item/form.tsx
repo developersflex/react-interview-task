@@ -90,11 +90,6 @@ export default function AddJob({
                 />
               </div>
               <div className=" w-full justify-end flex gap-5">
-                <Button
-                  text="Cancel Changes"
-                  variant="destructive"
-                  onClick={() => handleClose()}
-                />
                 <Button text="Save" />
               </div>
             </form>
