@@ -6,20 +6,22 @@ import Input from "@/components/Input";
 import { Formik } from "formik";
 import { addItem } from "@/utils/validations";
 import useCategories from "@/store/useCategories";
-import { Categories } from "@/types";
+import { Categories, CategoryItem } from "@/types";
 import Textarea from "@/components/Textarea";
 import { Button } from "@/components/Button";
 
-export default function AddItem({
+export default function EditItem({
   isOpen,
   handleClose,
   categoryName,
+  data,
 }: {
   isOpen: boolean;
   handleClose: () => void;
   categoryName: Categories;
+  data: CategoryItem;
 }) {
-  const { addCategoryItem } = useCategories();
+  const { editCategoryItem } = useCategories();
 
   return (
     <Modal
@@ -31,10 +33,7 @@ export default function AddItem({
     >
       <Formik
         initialValues={{
-          item: "",
-          quantity: "",
-          description: "",
-          notes: "",
+          ...data,
         }}
         validationSchema={addItem}
         onSubmit={(values) => {
@@ -42,7 +41,7 @@ export default function AddItem({
             ...values,
             category: categoryName,
           };
-          addCategoryItem(data);
+          editCategoryItem(data);
           handleClose();
         }}
       >

@@ -8,6 +8,7 @@ type customersStoreState = {
   get: () => void;
   getItems: (categoryName: string) => void;
   addCategoryItem: (newCategoryItem: CategoryItem) => void;
+  editCategoryItem: (editedCategoryItem: CategoryItem) => void;
 };
 
 const useCategories = create<customersStoreState>((set, get) => ({
@@ -41,6 +42,36 @@ const useCategories = create<customersStoreState>((set, get) => ({
       const data = await response.json();
 
       set({ categoryItems: [...get().categoryItems, data] });
+
+      alert(`Item added: ${data.item}`);
+    } catch (error) {
+      alert(`Fetch error: ${error}`);
+    }
+  },
+  editCategoryItem: async (editedCategoryItem: CategoryItem) => {
+    try {
+      const response = await fetch(
+        `${API_URL}/items/${editedCategoryItem.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(editedCategoryItem),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+
+      set((prevState) => ({
+        categoryItems: prevState.categoryItems.map((item) =>
+          item.id === editedCategoryItem.id ? data : item
+        ),
+      }));
 
       alert(`Item added: ${data.item}`);
     } catch (error) {
