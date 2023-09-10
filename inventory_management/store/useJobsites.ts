@@ -76,6 +76,7 @@ const useJobsites = create<customersStoreState>((set, get) => ({
       set((state) => ({
         jobSites: [...state.jobSites, newJobSite],
       }));
+      get().get();
     } catch (error) {
       // Revert the local state in case of an error
       console.error(error);
