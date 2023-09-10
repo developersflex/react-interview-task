@@ -22,35 +22,11 @@
   "items": [
     {
       "item": "G42295",
-      "quantity": "1",
-      "description": "test",
-      "notes": "test",
+      "quantity": "10",
+      "description": "Lorem ex veniam sunt id anim enim officia cillum ad nostrud amet cupidatat velit ad.",
+      "notes": "Lorem ex veniam sunt id anim enim officia cillum ad nostrud amet cupidatat velit ad.",
       "category": "Sidewalk Shed",
       "id": 1
-    },
-    {
-      "item": "G42295",
-      "quantity": "2",
-      "description": "test",
-      "notes": "test",
-      "category": "Shoring",
-      "id": 2
-    },
-    {
-      "item": "G42295",
-      "quantity": "123",
-      "description": "test",
-      "notes": "test",
-      "category": "Scaffold",
-      "id": 3
-    },
-    {
-      "item": "G42295",
-      "quantity": "333",
-      "description": "ttt",
-      "notes": "ttt",
-      "category": "Scaffold",
-      "id": 4
     }
   ]
 }
