@@ -80,9 +80,12 @@ export default function Table({
                     <Icons.nodata className="w-full" />
                     {isItem ? (
                       <>
-                        <p className="mt-5">No Service Selected</p>
+                        <p className="mt-5">
+                          No Service Selected OR No data for this category yet
+                        </p>
                         <span className="font-normal">
-                          Please select a service on your left to proceed.
+                          Please select a service on your left to proceed OR
+                          Create an item
                         </span>
                       </>
                     ) : (
