@@ -55,6 +55,7 @@ const Button: FC<ButtonProps> = ({ onClick, variant, text, className }) => {
         className={cn(buttonVariants({ variant, className }))}
         onClick={onClick}
         type="submit"
+        data-testid={text}
       >
         <div className="flex justify-center flex-1 p-2">{text}</div>
         <div className="flex items-center justify-start h-full mr-2 gap-2">

@@ -24,9 +24,11 @@ const Textarea: React.FC<TextareaProps> = ({
   return (
     <div className={`w-full mb-5 ${className}`}>
       <div className="relative flex flex-col gap-1">
-        <label className="ml-4 text-base font-semibold">{label}</label>
+        <label htmlFor={name} className="ml-4 text-base font-semibold">
+          {label}
+        </label>
         <textarea
-          id={label}
+          id={name}
           rows={rows}
           cols={cols}
           placeholder={placeholder}

@@ -102,7 +102,10 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
       </div>
 
       {isOpen && (
-        <div className="absolute  w-full bg-white shadow-md z-10 rounded-b-md overflow-hidden">
+        <div
+          className="absolute  w-full bg-white shadow-md z-10 rounded-b-md overflow-hidden"
+          role="listbox"
+        >
           {options.map((option) => {
             // Checking if the option is selected
             const isSelected = selectedOptions.some(
