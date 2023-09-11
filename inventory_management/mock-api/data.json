@@ -3,31 +3,55 @@
     {
       "name": "86-04 Shore Pkwy, Jamaica, NY 11414, USA",
       "status": "Completed",
-      "categories": ["Sidewalk Shed", "Scaffold", "Shoring"],
+      "categories": [
+        "Sidewalk Shed",
+        "Scaffold",
+        "Shoring"
+      ],
       "id": 1
     },
     {
       "name": "1705 E 22nd St, Brooklyn, NY 11229, USA",
       "status": "On Hold",
-      "categories": ["Sidewalk Shed"],
+      "categories": [
+        "Sidewalk Shed"
+      ],
       "id": 2
     },
     {
       "id": 3,
       "name": "47 Lake St, Brooklyn, NY 11223, USA",
       "status": "On Road",
-      "categories": ["Shoring", "Sidewalk Shed", "Scaffold"]
+      "categories": [
+        "Shoring",
+        "Sidewalk Shed",
+        "Scaffold"
+      ]
     },
     {
       "id": 4,
       "name": "47 Lake St, Brooklyn, NY 11223, USA",
       "status": "In Progress",
-      "categories": ["Shoring", "Sidewalk Shed", "Scaffold"]
+      "categories": [
+        "Shoring",
+        "Sidewalk Shed",
+        "Scaffold"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "256 Bay 19th St, Brooklyn, NY 11214, USA",
+      "status": "Completed",
+      "categories": [
+        "Sidewalk Shed",
+        "Scaffold",
+        "Shoring"
+      ]
     }
   ],
   "items": [
     {
-      "item": "G42295",
+      "item": "F3786",
       "quantity": "10",
       "description": "Lorem ex veniam sunt id anim enim officia cillum ad nostrud amet cupidatat velit ad.",
       "notes": "Lorem ex veniam sunt id anim enim officia cillum ad nostrud amet cupidatat velit ad.",
