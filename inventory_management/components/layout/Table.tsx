@@ -53,6 +53,7 @@ export default function Table({
             onChange={handleInputChange}
             className="w-full md:w-96 h-8 pl-10 pr-4 py-2 rounded-md border flex items-center bg-brand-background-secondary placeholder-bg-brand-background-secondary"
           />
+          <Icons.loop className="absolute bottom-2 left-2" />
         </div>
         {children}
       </div>
