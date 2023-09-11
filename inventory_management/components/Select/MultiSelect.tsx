@@ -67,7 +67,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
           <li>{option.label}</li>
           <Icons.x
             onClick={() => toggleOption(option)}
-            className="cursor-pointer"
+            className="cursor-pointer bg-brand-red-1000 rounded"
           />
         </div>
       ))}
