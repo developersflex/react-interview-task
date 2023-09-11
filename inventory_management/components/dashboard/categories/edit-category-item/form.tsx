@@ -29,7 +29,7 @@ export default function EditItem({
       onClose={() => {
         handleClose();
       }}
-      title="Create Category Item"
+      title="Edit Category Item"
     >
       <Formik
         initialValues={{
