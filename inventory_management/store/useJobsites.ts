@@ -8,20 +8,15 @@ type customersStoreState = {
   getById: (id: string) => void;
   add: (newJobSite: Jobsite) => void;
   statuses: {
-    onRoad: number;
-    onHold: number;
-    completed: number;
-  };
+    name: string;
+    value: number;
+  }[];
 };
 
 const useJobsites = create<customersStoreState>((set, get) => ({
   jobSites: [],
   jobSite: null,
-  statuses: {
-    onRoad: 0,
-    onHold: 0,
-    completed: 0,
-  },
+  statuses: [{ name: "", value: 0 }],
 
   get: async () => {
     try {
@@ -29,21 +24,27 @@ const useJobsites = create<customersStoreState>((set, get) => ({
       const jobSites = await response.json();
       set({ jobSites });
 
-      const onRoad = jobSites.filter(
+      const onRoad: number = jobSites.filter(
         (site: Jobsite) => site.status === "On Road"
       ).length;
-      const completed = jobSites.filter(
+      const completed: number = jobSites.filter(
         (site: Jobsite) => site.status === "Completed"
       ).length;
-      const onHold = jobSites.filter(
+      const onHold: number = jobSites.filter(
         (site: Jobsite) => site.status === "On Hold"
       ).length;
 
-      set({ statuses: { onRoad, completed, onHold } });
+      const updatedStatuses = [
+        { name: "On Road", value: onRoad },
+        { name: "Completed", value: completed },
+        { name: "On Hold", value: onHold },
+      ];
+
+      set({ statuses: updatedStatuses });
     } catch (error) {
       set({
         jobSites: [],
-        statuses: { onRoad: 0, completed: 0, onHold: 0 },
+        statuses: [{ name: "", value: 0 }],
       });
     }
   },
