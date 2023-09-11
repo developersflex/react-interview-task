@@ -20,12 +20,10 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className={`w-full mb-5 ${className}`}>
       <div className="relative flex flex-col gap-1">
-        <label htmlFor={name} className="ml-4 text-base font-semibold">
-          {label}
-        </label>
+        <label className="ml-4 text-base font-semibold">{label}</label>
         <input
           type="text"
-          id={name}
+          id={label}
           placeholder={placeholder}
           className="rounded-md bg-brand-background-primary placeholder-[#E0E0E1] h-8 px-2 py-1"
           {...field}

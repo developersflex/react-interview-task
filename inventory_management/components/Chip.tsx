@@ -1,8 +1,7 @@
-import { Categories, Status } from "@/types";
 import { getStatusClassName } from "@/utils/functions";
 import React from "react";
 
-type Props = { text: Status | string };
+type Props = { text: string };
 
 export default function Chip({ text }: Props) {
   return (

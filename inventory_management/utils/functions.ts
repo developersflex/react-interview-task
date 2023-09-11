@@ -8,7 +8,7 @@ export function getStatusClassName(status: string) {
   } else if (status === "In Progress") {
     return "brand-green-1001 text-white";
   } else {
-    return "brand-green-500";
+    return "";
   }
 }
 
