@@ -7,6 +7,7 @@ import {
 } from "@/utils/functions";
 import { useField, useFormikContext } from "formik";
 import MultiSelect from "./MultiSelect";
+import { Status } from "@/types";
 
 interface Option {
   label: string;
@@ -66,13 +67,20 @@ const Select: React.FC<SelectProps> = ({
           aria-haspopup="listbox"
           placeholder="Select one"
         >
-          {field.value ? (
+          {typeof field.value === "string" &&
+          (
+            ["Completed", "In Progress", "On Road", "On Hold"] as Status[]
+          ).includes(field.value as Status) ? (
             <div className="flex items-center gap-1.5">
               <Icons.dot className={circleDynamicBgStyles(field.value)} />
               {field.value}
             </div>
           ) : (
-            <span className="text-[#E0E0E1]">{placeholder}</span>
+            <>
+              {field.value || (
+                <span className="text-[#E0E0E1]">{placeholder}</span>
+              )}
+            </>
           )}
           <Icons.arrow_down
             className={`transition ${isOpen ? "rotate-180" : ""}`}
@@ -97,11 +105,11 @@ const Select: React.FC<SelectProps> = ({
               onClick={() => handleSelect(option)}
               type="button"
               className={`block px-2 py-2 text-sm text-[#323338] w-full text-left 
-              } border-t first:border-none hover:text-gray-500
+              } border-t first:border-none
               ${hoverDynamicBgStyles[option.label]}
               ${
                 option.value === field.value
-                  ? `text-white bg-${getStatusClassName(option.label)}`
+                  ? `bg-${getStatusClassName(option.label)}`
                   : ""
               }
               `}

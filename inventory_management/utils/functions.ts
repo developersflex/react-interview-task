@@ -1,12 +1,12 @@
 export function getStatusClassName(status: string) {
   if (status === "Completed") {
-    return "brand-green-1000";
+    return "brand-green-1000 text-white";
   } else if (status === "On Hold") {
-    return "brand-red-1000";
+    return "brand-red-1000 text-white";
   } else if (status === "On Road") {
-    return "brand-yellow-1000";
+    return "brand-yellow-1000 text-white";
   } else if (status === "In Progress") {
-    return "brand-green-1001";
+    return "brand-green-1001 text-white";
   } else {
     return "brand-green-500";
   }
