@@ -113,6 +113,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
             );
             return (
               <button
+                type="button"
                 key={option.value}
                 onClick={() => toggleOption(option)}
                 className={`flex items-center justify-between px-2 py-2 text-sm text-[#323338] w-full text-left  
