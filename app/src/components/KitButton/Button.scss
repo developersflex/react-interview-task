@@ -1,0 +1,49 @@
+@use './../../styles/variables' as *;
+
+.kit-button {
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+
+  &:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+  padding: 10px 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: white;
+  border: none;
+  border-radius: $border-xs;
+  cursor: pointer;
+  font-family: Open Sans, sans serif;
+  font-weight: 600;
+
+  &.default {
+    background-image: linear-gradient(
+      to right,
+      #02aab0 0%,
+      #00cdac 51%,
+      #02aab0 100%
+    );
+  }
+  &.cancel {
+    background-image: linear-gradient(
+      to right,
+      #d31027 0%,
+      #ea384d 51%,
+      #d31027 100%
+    );
+  }
+  &.secondary {
+    background-image: linear-gradient(
+      to right,
+      #00d2ff 0%,
+      #3a7bd5 51%,
+      #00d2ff 100%
+    );
+  }
+}
